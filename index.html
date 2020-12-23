@@ -11,8 +11,45 @@
     <script>
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/webgl.json", {onProgress: UnityProgress});
     </script>
+    <style>
+      html, body, .grid-container { height: 100%; margin: 0; }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . . . . . . . . . ."
+    ". list list . . . . . . . ."
+    ". list list . . . . . . . ."
+    ". list list . . . . . . . ."
+    ". list list . . . . . . . ."
+    ". list list . . . . . . . ."
+    ". list list . . . . . . . ."
+    ". . . . . . . . . . .";
+}
+
+.list { grid-area: list; }
+
+
+/* For presentation only, no need to copy the code below */
+.grid-container * {
+  border: 1px solid red;
+  position: relative;
+}
+
+.grid-container *:after {
+  content:attr(class);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+    </style>
   </head>
   <body>
+    <div class="grid-container">
+  <div class="list"></div>
     <div class="webgl-content" style="right: -50px">
       <div id="unityContainer" style="width: 960px; height: 600px"></div>
       <div class="footer">
@@ -21,5 +58,6 @@
         <div class="title">cv game</div>
       </div>
     </div>
+   </div>
   </body>
 </html>
