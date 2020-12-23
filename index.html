@@ -12,7 +12,8 @@
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/webgl.json", {onProgress: UnityProgress});
     </script>
     <style>
-      html, body, .grid-container { height: 100%; margin: 0; }
+      
+     html, body, .grid-container { height: 100%; margin: 0; }
 
 .grid-container {
   display: grid;
@@ -22,15 +23,19 @@
   grid-template-areas:
     ". . . . . . . . . . ."
     ". list list . . . . . . . ."
+    ". list list . . teaching teaching teaching teaching . ."
+    ". list list . . teaching teaching teaching teaching . ."
     ". list list . . . . . . . ."
-    ". list list . . . . . . . ."
-    ". list list . . . . . . . ."
-    ". list list . . . . . . . ."
-    ". list list . . . . . . . ."
+    ". list list . video video . . . . ."
+    ". list list . video video . . . . ."
     ". . . . . . . . . . .";
 }
 
 .list { grid-area: list; }
+
+.teaching { grid-area: teaching; }
+
+.video { grid-area: video; }
 
 
 /* For presentation only, no need to copy the code below */
@@ -45,19 +50,19 @@
   top: 0;
   left: 0;
 }
+
+      
     </style>
   </head>
   <body>
+    
+    
     <div class="grid-container">
-  <div class="list"></div>
-    <div class="webgl-content" style="right: -50px">
-      <div id="unityContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
+          <div class="list"><div class="webgl-logo"></div>
         <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">cv game</div>
-      </div>
-    </div>
+           <div class="teaching"></div>
+            <div class="video">
+      <div id="unityContainer" style="width: 960px; height: 600px"></div>
    </div>
   </body>
 </html>
